@@ -9,7 +9,7 @@ In my polymer field theory research, often my studies involve running a bunch of
 
 For example, if I want to simulate 3 different polymer nanocomposite systems, each with a different nanorod length, I could manually create 3 directories like so:
 
-```bash
+```
 mkdir length1
 mkdir length2
 mkdir length3
@@ -17,7 +17,7 @@ mkdir length3
 
 Then I could copy an input file, `bcp.input`, and a submit file, `sub.sh` into each of those folders like so:
 
-```bash
+```
 for i in 1 2 3 ; do
   cp bcp.input "length$i"
   cp sub.sh "length$i"
@@ -37,7 +37,7 @@ NRLENGTH    # Nanorod length
 
 and my submission script template could look something like this:
 
-```
+```bash
 #!/bin/sh
 #PBS -N TRIALNAME
 #PBS -l nodes=1:ppn=12
