@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Parameter Sweep with a Bash Script"
+title: "Parameter Sweep Bash Script"
 date: 2015-12-19 11:09:40 -0500
 comments: true
 categories: bash
@@ -17,16 +17,16 @@ mkdir length3
 
 Then I could copy an input file, `bcp.input`, and a submit file, `sub.sh` into each of those folders like so:
 
-```
-for i in 1 2 3 ; do
-  cp bcp.input "length$i"
-  cp sub.sh "length$i"
+```bash
+for d in length*/ ; do
+  cp bcp.input "$d"
+  cp sub.sh "$d" 
 done
 ```
 
-Then I could proceed to manually edit all 6 files (or just 3 if the submission script doesn't have to change). If it's just 3 file, this is totally doable, but if we want to run 10 or 20 simulations with slight changes in the input file for each one, manual editing gets real tedious real fast. I got fed up with it and wrote a script to do all the editing for me. The script is called `param-sweep.sh`. Feel free to look at it on [GitHub](https://github.com/benlindsay/param-sweep.git).
+Then I could proceed to manually edit all 6 files (or just 3 if the submission script doesn't have to change). If it's just 3 files, it's not too bad, but if I want to run 10 or 20 simulations with slight changes in the input file for each one, manual editing gets real tedious real fast. I got fed up with it and wrote a script to do all the editing for me. The script is called `param-sweep.sh`. Feel free to look at it on [GitHub](https://github.com/benlindsay/param-sweep.git).
 
-The way my system works is I make a template for the input file and submission script with parameter names that the script will replace with parameter values. My input file template could look something like this:
+Before running the script, I make a template for the input file and submission script with parameter names that the script will replace with parameter values. My input file template could look something like this:
 
 ```
 1000        # Number of iterations
@@ -93,5 +93,7 @@ $ tree
 
 So the script made directories for all three simulations, replaced `NRLENGTH` with `4`, `5`, and `6` in the `bcp.input` files, replaced `TRIALNAME` with `length1-trial`, `length2-trial`, and `length3-trial` in the `sub.sh` files, and submitted the `sub.sh` files from within their respective simulation directories. In this case, since my script expects files with the names I used, I could have just typed `~/scripts/param-sweep.sh`. If I wanted to be able to check the files before submitting, I could have typed `~/scripts/param-sweep.sh -n` which would create the directories and files without submitting the jobs.
 
-A few caveats: the script isn't currently set up to handle more than one layer of simulation directories. Also, the script as it's set up right now copies whatever input file and submission script its fed to files named `bcp.input` and `sub.sh`.
+A few caveats: the script isn't currently set up to handle more than one layer of simulation directories. Also, the script as it's set up right now copies whatever input file and submission script its fed to files named `bcp.input` and `sub.sh`. Finally, you'll need to make sure that the variable name you want the script to find and replace with variable values doesn't show up anywhere else in the file. The script will find and replace all instances of the variable name (case sensitive).
+
+This script has saved me a lot of time. Hopefully it can help someone else out there too.
 
