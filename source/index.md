@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Ben Lindsay"
+title: "About Me"
 comments: false
 sharing: true
 footer: true
