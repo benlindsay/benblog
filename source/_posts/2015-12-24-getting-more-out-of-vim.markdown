@@ -13,4 +13,24 @@ If you're just starting Vim and need some basic directions, I'd look at [this tu
 
 ##0. Plugins Using Vim-Pathogen
 
-Before anything else, I want to put in a plug for Vim-Pathogen. To get the most out of Vim, you might want to add a some plugins for things like file system navigation ([NERD Tree](https://github.com/scrooloose/nerdtree)), auto-closing parentheses and brackets ([Vim-Autoclose](https://github.com/Townk/vim-autoclose)), and writing and compiling $$\infty$$ files ([LaTeX-Box](https://github.com/LaTeX-Box-Team/LaTeX-Box))
+Before anything else, I want to put in a plug for Vim-Pathogen. To get the most out of Vim, you might want to add a some plugins for things like file system navigation ([NERD Tree](https://github.com/scrooloose/nerdtree)), auto-closing parentheses and brackets ([Vim-Autoclose](https://github.com/Townk/vim-autoclose)), and writing and compiling LaTeX files ([LaTeX-Box](https://github.com/LaTeX-Box-Team/LaTeX-Box)). Installing plugins can be annoying, but [Tim Pope](https://github.com/tpope)'s [Vim-Pathogen](https://github.com/tpope/vim-pathogen) script makes installing any new plugins super easy.
+
+Setting it up is pretty easy too. Just follow the instructions on [github.com/tpope/vim-pathogen](https://github.com/tpope/vim-pathogen). At the end of your setup, you will have a `.vim` folder in your home directory organized like this:
+
+```
+$ tree ~/.vim
+.
+├── autoload
+│   └── pathogen.vim
+└── bundle
+```
+
+From there, all you ever need to do to install a plugin is find the plugin repository on GitHub and `git clone` it in your `~/.vim/bundle` folder. For example, to install the NERD Tree plugin, you would:
+
+1. Google something like "vim nerd tree" 
+2. Find the link to a GitHub repo ([https://github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)) 
+3. `cd ~/.vim/bundle`
+4. `git clone https://github.com/scrooloose/nerdtree`
+5. Open Vim and type `:Helptags` to update the help menu in Vim.
+
+And just like that you're all set up with your new plugin. If you ever want to remove or temporarily disable a plugin, just delete the cloned repo (`rm -rf ~/.vim/bundle/nerdtree`) or move it somewhere else (`mv ~/.vim/bundle/nerdtree /any/other/path`).
