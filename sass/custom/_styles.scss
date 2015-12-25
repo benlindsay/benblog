@@ -1,9 +1,8 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-/* ***************
-   * Icons aside *
-      *************** */
+// Icons aside
+// Solution from Jessica Hamrick
 
 #aside-icons {
     text-align: center;
@@ -13,4 +12,14 @@
         text-decoration: none;
         white-space: nowrap;
     }   
+}
+
+// Indent ordered and unordered lists.
+// Solution suggested in
+// gorticus.com/blog/2012/09/09/ol-and-ul-alignment-in-octopress/
+
+article {
+    ol, ul {
+        padding-left: 3em;
+    }
 }
