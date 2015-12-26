@@ -7,6 +7,8 @@ categories: bash
 ---
 In my polymer field theory research, often my studies involve running a bunch of simulations where I pick one or more input parameters and change them over a range of values, then compare the results of each separate simulation to see how that/those variable(s) affect the system I'm simulating. This kind of study is called a "parameter sweep", and can also be referred to as "embarrassingly parallel", because the processor(s) for each for each individual job don't need to communicate with the processor(s) from any other job. It can be very tedious to manually create input files for each job, so I wrote a bash script to help me out.
 
+<!--more-->
+
 For example, if I want to simulate 3 different polymer nanocomposite systems, each with a different nanorod length, I could manually create 3 directories like so:
 
 ```
