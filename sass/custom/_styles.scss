@@ -13,13 +13,3 @@
         white-space: nowrap;
     }   
 }
-
-// Indent ordered and unordered lists.
-// Solution suggested in
-// gorticus.com/blog/2012/09/09/ol-and-ul-alignment-in-octopress/
-
-article {
-    ol, ul {
-        padding-left: 3em;
-    }
-}
