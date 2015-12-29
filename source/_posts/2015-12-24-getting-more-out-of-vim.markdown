@@ -13,11 +13,11 @@ For those of you who don't know, Vim is a powerful command-line text editor. It 
 If you're just starting Vim and need some basic directions, I'd look at [this tutorial](http://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118), although in my opinion you can skip the stuff about relative line numbering. I prefer absolute line numbering. A good reference to look back at after going through this tutorial can be found [here](https://simpletutorials.com/c/1238/Simple+Vim+Reference). Even these introductory materials have a *lot* of commands though, so I'll summarize the steps I'd recommend taking to getting more out of Vim.
 
 
-##0. Plugins Using Vim-Pathogen
+##1. Install Vim-Pathogen
 
-Before anything else, I want to put in a plug for Vim-Pathogen. To get the most out of Vim, you might want to add a some plugins for things like file system navigation ([NERD Tree](https://github.com/scrooloose/nerdtree)), auto-closing parentheses and brackets ([Vim-Autoclose](https://github.com/Townk/vim-autoclose)), and writing and compiling LaTeX files ([LaTeX-Box](https://github.com/LaTeX-Box-Team/LaTeX-Box)). Installing plugins can be annoying, but [Tim Pope](https://github.com/tpope)'s [Vim-Pathogen](https://github.com/tpope/vim-pathogen) script makes installing any new plugins super easy.
+Before anything else, I want to put in a plug for [Vim-Pathogen](https://github.com/tpope/vim-pathogen). To get the most out of Vim, you might want to add a some plugins for things like file system navigation ([NERD Tree](https://github.com/scrooloose/nerdtree)), auto-closing parentheses and brackets ([Vim-Autoclose](https://github.com/Townk/vim-autoclose)), and writing and compiling LaTeX files ([LaTeX-Box](https://github.com/LaTeX-Box-Team/LaTeX-Box)). Once you install [Tim Pope](https://github.com/tpope)'s [Vim-Pathogen](https://github.com/tpope/vim-pathogen) script, installing any new plugins is super easy.
 
-Setting it up is pretty easy too. Just follow the instructions on [github.com/tpope/vim-pathogen](https://github.com/tpope/vim-pathogen). At the end of your setup, you will have a `.vim` folder in your home directory organized like this:
+Setting up Vim-Pathogen itself is pretty easy too. Just follow the instructions on [github.com/tpope/vim-pathogen](https://github.com/tpope/vim-pathogen). At the end of your setup, you will have a `.vim` folder in your home directory organized like this:
 
 ```
 $ tree ~/.vim
@@ -36,3 +36,21 @@ From there, all you ever need to do to install a plugin is find the plugin repos
 5. Open Vim and type `:Helptags` to update the help menu in Vim.
 
 And just like that you're all set up with your new plugin. If you ever want to remove or temporarily disable a plugin, just delete the cloned repo (`rm -rf ~/.vim/bundle/nerdtree`) or move it somewhere else (`mv ~/.vim/bundle/nerdtree /any/other/path`).
+
+##2. Practice Navigation
+
+The ability to navigate around Vim without having to leave the keyboard home row is in my opinion its biggest time-saving feature, but it takes a bit of practice to get the hang of it. The resources I listed above are great references to look back on if you forget some commands.
+
+The best thing to start practicing is maneuvering with the `hjkl` keys instead of the arrow keys. It's strange at first, but it becomes second nature soon enough. To make best use of this navigation technique, keep in mind that you want to be in __Normal__ mode instead of __Insert__ mode any time you aren't adding text to your file. Get in the habit of hitting `ESC` or the equivalent `CTRL-C` (I prefer `CTRL-C`) any time you take a break from typing so you don't start adding a bunch of h's, j's, k's , and l's to your file. Here's a silly [game](http://vim-adventures.com) you can play if you want to have fun while practicing Vim navigation.
+
+Here's a short list of the other navigation techniques (all used in __Normal__ mode) I use most frequently:
+
+* Navigation Between Lines
+    1. `28G` moves to line 28. Have `:set nu` typed somewhere in your `~/.vimrc` file so the line numbers show up when you're in Vim.
+    2. `gg` or `G` move to the top or bottom of the file, respectively.
+    3. `/foo` moves to the next place "foo" is found in the document (case sensitive). Typing `n` then moves to the next one and typing `N` moves to the previous one.
+* Navigation Within a Line
+    1. `0` and `$` move to the beggining and end of the line, respectively.
+    2. `W` and `B` are good ways to move right and left, respectively, faster than `h` and `l`. They move forward and backword one WORD. (In Vim, WORDS ar)
+    3. `fh` moves to the next occurrence of the character "h" within the line. `th` does the same thing but places the cursor just before the "h" instead of right on it.
+
