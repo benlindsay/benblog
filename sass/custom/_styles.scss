@@ -59,3 +59,20 @@ body {
         border-bottom: 0px;
     }
 }
+
+// Make dates show up below titles and titles get rid of extraneous padding on
+// titles with no dates
+
+article {
+    header {
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom: 1em;
+        p {
+            &.meta {
+                position: relative;
+                padding-top: 1em;
+            }
+        }
+    }
+}
