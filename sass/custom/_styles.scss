@@ -1,7 +1,7 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-// Icons aside
+// Nice formatting for mail, github, linkedin symbols in side bar
 // Solution from Jessica Hamrick
 
 #aside-icons {
@@ -20,12 +20,42 @@ html {
     background: #fff;
 }
 
-//nav {
-//    width: 100%;
-//    padding: 0;
-//    padding-left: 0;
-//    padding-right: 0;
-//    margin: 0 auto;
-//    margin-left: 0;
-//    margin-right: 0;
-//}
+body {
+
+    // Extend nav and footer to full screen width but align text with
+    // main content. Also remove border lines.
+
+    > nav[role="navigation"], > footer[role="contentinfo"] {
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        border-bottom: 0px;
+        border-top: 0px;
+        padding-left: calc(50vw - 50% + 18px);
+        padding-right: calc(50vw - 50% + 18px);
+        @media only screen and (min-width: 480px) {
+            padding-left: calc(50vw - 50% + 25px);
+            padding-right: calc(50vw - 50% + 25px);
+        }
+        @media only screen and (min-width: 768px) {
+            padding-left: calc(50vw - 50% + 35px);
+            padding-right: calc(50vw - 50% + 35px);
+        }
+        @media only screen and (min-width: 992px) {
+            padding-left: calc(50vw - 50% + 55px);
+            padding-right: calc(50vw - 50% + 55px);
+        }
+    }
+
+    // Remove white space below footer and make corners sharp, not rounded
+
+    > footer[role="contentinfo"] {
+        margin-bottom: 0;
+        border-radius: 0px 0px 0px 0px;
+    }
+
+    // Remove bottom border from main content
+
+    > div#main {
+        border-bottom: 0px;
+    }
+}
