@@ -51,6 +51,8 @@ body {
     > footer[role="contentinfo"] {
         margin-bottom: 0;
         border-radius: 0px 0px 0px 0px;
+        // This is just for short posts so there's no whitespace
+        box-shadow: 0px 500px 0px 500px #444;
     }
 
     // Remove bottom border from main content
