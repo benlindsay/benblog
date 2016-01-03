@@ -10,8 +10,7 @@ For those of you who don't know, Vim is a powerful command-line text editor. It 
 
 <!--more-->
 
-If you're just starting Vim and need some basic directions, I'd look at [this tutorial](http://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118), although in my opinion you can skip the stuff about relative line numbering. I prefer absolute line numbering. A good reference to look back at after going through this tutorial can be found [here](https://simpletutorials.com/c/1238/Simple+Vim+Reference). Even these introductory materials have a *lot* of commands though, so I'll summarize the steps I'd recommend taking to getting more out of Vim.
-
+If you're just starting Vim and need some basic directions, I'd look at [this tutorial](http://computers.tutsplus.com/tutorials/vim-for-beginners--cms-21118). A good reference to look back at after going through this tutorial can be found [here](https://simpletutorials.com/c/1238/Simple+Vim+Reference). Even these introductory materials have a *lot* of commands though, so I'll summarize the steps I'd recommend taking to getting more out of Vim.
 
 ##1. Install Vim-Pathogen
 
@@ -45,12 +44,19 @@ The best thing to start practicing is maneuvering with the `hjkl` keys instead o
 
 Here's a short list of the other navigation techniques (all used in __Normal__ mode) I use most frequently:
 
-* Navigation Between Lines
-    1. `28G` moves to line 28. Have `:set nu` typed somewhere in your `~/.vimrc` file so the line numbers show up when you're in Vim.
-    2. `gg` or `G` move to the top or bottom of the file, respectively.
-    3. `/foo` moves to the next place "foo" is found in the document (case sensitive). Typing `n` then moves to the next one and typing `N` moves to the previous one.
-* Navigation Within a Line
-    1. `0` and `$` move to the beggining and end of the line, respectively.
-    2. `W` and `B` are good ways to move right and left, respectively, faster than `h` and `l`. They move forward and backword one WORD. (In Vim, WORDS ar)
-    3. `fh` moves to the next occurrence of the character "h" within the line. `th` does the same thing but places the cursor just before the "h" instead of right on it.
+1. Typing a number before `h`, `j`, `k`, or `l` navigates in that direction that number of times. For example, `10j` moves down 10 lines.
+2. `28G` moves to line 28. Have `:set nu` typed somewhere in your `~/.vimrc` file so the line numbers show up when you're in Vim.
+3. `gg` or `G` move to the top or bottom of the file, respectively.
+4. `/foo` moves to the next place "foo" is found in the document (case sensitive). Typing `n` then moves to the next one and typing `N` moves to the previous one.
+5. `0` and `$` move to the beggining and end of the line, respectively.
+6. `W` and `B` take you to the beginning of the next WORD and previous WORD, respectivley. In Vim, WORDS are chunks of text separated by white space and words are more like normal words. For example, in a line that looks like `words-making/up.a!big~WORD WORD-2`, typing `W` would take you to the beginning of `WORD-2`, whereas typing `w` or `b`, which navigate between vim words (instead of WORDS), would hit all the `-/.!~` characters in addition to the beginnings of english words.
+7. `fh` moves to the next occurrence of the character "h" within the line. `th` does the same thing but places the cursor just before the "h" instead of right on it.
+8. `{` and `}` take you to the previous and next paragraph, respectively. `(` and `)` do the same with sentences. This is really nice when typing a lot of text as opposed to code. You can still use them with code, but they're just not as predictable. 
 
+##3. Learn to Speak Vim
+
+What I mean by this is that Vim has a unique command syntax that makes it easy to supercharge your commands. Yan Pritzker has a great post about this [here](http://yanpritzker.com/2011/12/16/learn-to-speak-vim-verbs-nouns-and-modifiers/).
+
+In addition to the `<verb><modifier><text object>` syntax explained in the article, there is also a useful `<verb><navigation command>` syntax that I frequently use. A typical example is something like `d3j`. Here, `d` is the verb for delete, and `3j` tells Vim how far to go, in this case, down 3 lines. So `d3j` deletes the current line and the following 3 lines. You can use any of the navigation commands mentioned above in place of `3j` and any verb in place of `d`. Common verbs are `c` for change (delete specified region and enter insert mode) and `y` for yank (Vim's word for copy, where p or P can be used to paste what you copy).
+
+No go out and practice this stuff, and hopefully you'll see why so many people swear by Vim. If you have thoughts, comments, corrections, or additions you'd like to see, let me know!
