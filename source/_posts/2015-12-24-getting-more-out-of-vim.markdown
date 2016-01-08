@@ -4,7 +4,7 @@ title: "Getting More Out of Vim"
 date: 2015-12-24 08:53:11 -0500
 comments: true
 published: true
-categories: vim
+categories: vim, productivity
 ---
 For those of you who don't know, Vim is a powerful command-line text editor. It is the improved version of it's predecessor, Vi (in fact, it stands for Vi IMproved). I'm a big fan of Vim for coding and text editing. I started using it a few years ago only because it was the only way I knew how to edit files when SSH-ing onto a remote Linux machine. Now that I've spent time learning how to use it right, I find it faster than any GUI text editor I've used before. There is a somewhat steep learning curve, but if you do a lot of coding or plain-text editing, it's definitely worth investing some time to learn how to use Vim right. Hopefully this post can provide some direction if you are intimidated by Vim like I was when I first started.
 
