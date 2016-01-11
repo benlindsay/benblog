@@ -9,7 +9,7 @@ If you've heard of Git, you probably think of it mainly as a tool that allows te
 
 <!--more-->
 
-There's a hell of a lot you can learn about Git if you want, but you don't have to know that much to start speeding up and cleaning up your workflow. The following list of commands covers most of what you'll need to use Git. For almost everything else, a quick Google search turns up a StackOverflow can get a lot of the benefits of Git with just this short list of commands:
+There's a lot you can learn about Git, but you don't have to know that much to start speeding up and cleaning up your workflow. The following list of commands covers most of what you'll need to use Git. For almost everything else, a quick Google search turns up a StackOverflow can get a lot of the benefits of Git with just this short list of commands:
 
 - **Just once to set your user name and email for your whole system:**
   - `git config --global user.name "John Doe"`
@@ -132,10 +132,6 @@ So now we have changes ready to commit. To commit, type `git commit -m "Short ex
 
 {% codeblock %}
 $ git commit -m "First commit"
-[master (root-commit) 4b7f2db] First commit
- 2 files changed, 2 insertions(+)
- create mode 100644 README.md
- create mode 100644 hello.py
 {% endcodeblock %}
 
 Finally, our current status is:
@@ -173,15 +169,6 @@ If you click "I have an existing project", as I have in the screenshot above, it
 {% codeblock %}
 $ git remote add origin https://benlindsay@bitbucket.org/benlindsay/cool-project.git
 $ git push -u origin --all
-Password for 'https://benlindsay@bitbucket.org': 
-Counting objects: 4, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (4/4), 306 bytes | 0 bytes/s, done.
-Total 4 (delta 0), reused 0 (delta 0)
-To https://benlindsay@bitbucket.org/benlindsay/cool-project.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.
 {% endcodeblock %}
 
 As you can see, Git asked me for my Bitbucket password, then spat out a bunch of stuff basically saying it successfully pushed our project up to Bitbucket. Now, if you refresh your Bitbucket page, it should look like this:
@@ -202,12 +189,6 @@ If you SSH into a different machine and make sure Git is installed and configure
 $ mkdir my-projects-dir
 $ cd my-projects-dir
 $ git clone https://benlindsay@bitbucket.org/benlindsay/cool-project.git 
-Cloning into 'cool-project'...
-remote: Counting objects: 4, done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 4 (delta 0), reused 0 (delta 0)
-Unpacking objects: 100% (4/4), done.
-Checking connectivity... done.
 $ ls
 cool-project/
 {% endcodeblock %}
@@ -234,21 +215,12 @@ Now we commit the change:
 {% codeblock %}
 $ git add .
 $ git commit -m "Added author to README.md with some markdown syntax included"
-[master 68f9381] Added author to README.md with some markdown syntax included
- 1 file changed, 2 insertions(+)
 {% endcodeblock %}
 
 And push the commit up to Bitbucket:
 
 {% codeblock %}
 $ git push origin master 
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 367 bytes | 0 bytes/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://benlindsay@bitbucket.org/benlindsay/cool-project.git
-   4b7f2db..68f9381  master -> master
 {% endcodeblock %}
 
 Now to sync the project on your laptop, from within the project directory on the laptop, you just need to type `git pull`:
@@ -257,25 +229,20 @@ Now to sync the project on your laptop, from within the project directory on the
 $ cat README.md
 This is an awesome project.
 $ git pull
-Password for 'https://benlindsay@bitbucket.org': 
-remote: Counting objects: 3, done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0)
-Unpacking objects: 100% (3/3), done.
-From https://bitbucket.org/benlindsay/cool-project
-   4b7f2db..68f9381  master     -> origin/master
-Updating 4b7f2db..68f9381
-Fast-forward
- README.md | 2 ++
- 1 file changed, 2 insertions(+)
 $ cat README.md
 This is an awesome project.
 
 **Author:** Ben Lindsay
 {% endcodeblock %}
 
-###6. Next Steps
+###6. Save Commit Hash for Reproducible Research
 
-I'll discuss branching and checking out previous commits another time. These are really cool concepts that further add to what you can do with your code. For now, here's a [great simple reference](http://rogerdudler.github.io/git-guide/) by Roger Dudler, which, as he says, contains "no deep shit". I look back at this all the time.
+Each commit you make has a unique 40-character **SHA-1 hash**. If you type `git log` you'll see a list of commits you've made along with a long string of numbers and letters. That is the hash. Usually the first 7 or 8 characters will be all you need.
+
+What's great about this is that as long as you know the first several characters of the hash associated with the state of your source code at any given time, you can get your code back exactly the way it was at that time. This means that if you use your code to generate some results and you save the beginning of that string of characters somewhere along with those results, you'll never have to wonder what the code looked like then. Adding this step to your workflow can save a lot of pain down the road if you're trying to replicate past results using code you've been actively developing.
+
+###7. Branches and Checkouts
+
+I'll add stuff branching and checking out previous commits later. These are really cool concepts that further add to what you can do with your code. For now, here's a [great simple reference](http://rogerdudler.github.io/git-guide/) by Roger Dudler, which, as he says, contains "no deep shit". I look back at this all the time.
 
 Good luck! Feel free to leave comments and questions below.
