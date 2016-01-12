@@ -26,7 +26,7 @@ for d in length*/ ; do
 done
 ```
 
-Then I could proceed to manually edit all 6 files (or just 3 if the submission script doesn't have to change). If it's just 3 files, it's not too bad, but if I want to run 10 or 20 simulations with slight changes in the input file for each one, manual editing gets real tedious real fast. I got fed up with it and wrote a script to do all the editing for me. The script is called `param-sweep.sh`. Feel free to look at it on [GitHub](https://github.com/benlindsay/param-sweep.git).
+Then I could proceed to manually edit all 6 files (or just 3 if the submission script doesn't have to change). If it's just 3 files, it's not too bad, but if I want to run 10 or 20 simulations with slight changes in the input file for each one, manual editing gets real tedious real fast. I got fed up with it and wrote a script to do all the editing for me. The script is called `param-sweep.sh`. Feel free to look at it on [Bitbucket](https://bitbucket.org/benlindsay/param-sweep.git).
 
 Before running the script, I make a template for the input file and submission script with parameter names that the script will replace with parameter values. My input file template could look something like this:
 
