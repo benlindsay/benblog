@@ -1,0 +1,65 @@
+<!-- mathjax config similar to math.stackexchange -->
+<style>
+
+.states {
+  fill: none;
+}
+
+.state_borders {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+.q-9 { fill:rgb(0,117,234); }
+.q-8 { fill:rgb(26,130,234); }
+.q-7 { fill:rgb(52,143,234); }
+.q-6 { fill:rgb(78,156,234); }
+.q-5 { fill:rgb(104,169,234); }
+.q-4 { fill:rgb(130,182,234); }
+.q-3 { fill:rgb(156,195,234); }
+.q-2 { fill:rgb(182,208,234); }
+.q-1 { fill:rgb(208,221,234); }
+.q0 { fill:rgb(234,234,234); }
+.q1 { fill:rgb(234,213,234); }
+.q2 { fill:rgb(234,192,234); }
+.q3 { fill:rgb(234,171,234); }
+.q4 { fill:rgb(234,150,234); }
+.q5 { fill:rgb(234,129,234); }
+.q6 { fill:rgb(234,108,234); }
+.q7 { fill:rgb(234,87,234); }
+.q8 { fill:rgb(234,66,234); }
+.q9 { fill:rgb(234,45,234); }
+
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<!-- Start original default octopress content-->
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% include head.html %}
+<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %} {% if page.sidebar == 'collapse' or site.sidebar == 'collapse' %} class="collapse-sidebar sidebar-footer" {% endif %}>
+  {% if site.include_header %}
+  <header role="banner">{% include header.html %}</header>
+  {% endif %}
+  <nav role="navigation">{% include navigation.html %}</nav>
+  <div id="main">
+    <div id="content">
+      {{ content | expand_urls: root_url }}
+    </div>
+  </div>
+  <footer role="contentinfo">{% include footer.html %}</footer>
+  {% include after_footer.html %}
+</body>
+</html>
